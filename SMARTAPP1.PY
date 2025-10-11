@@ -61,16 +61,24 @@ def metingen(dag):
 f"""Je waardes kloppen niet, gebruik voer een geldig nummer in en gebruik '.' voor decimalen.
 probeer opnieuw:       
 """)
+    #Dict voor data 
+    resultaat = {
 
-    return {
-    f"dag {dag}": dag,
-    "celcius": celsius,
+    #nested dict, omdat dag altijd 3 waardes gaat hebben die kunnen verschillen
+    #Zo kan ik straks dag makkelijk in een txt omzetten
+
+    f"dag {dag}":
+    {"celcius": celsius,
     "windsnelheid": windsnelheid,
-    "luchtvochtigheid": luchtvochtigheid
+    "luchtvochtigheid": luchtvochtigheid}
+   
     }
+
+
+    return resultaat
     
 
-
+print(metingen(dag))
 
         
         
