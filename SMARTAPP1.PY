@@ -18,8 +18,8 @@ while True:
     dag = input("Voer een dag in om te starten (1-7): ").strip()
     
     #Error check of het een int is
-    try: 
-        dag = int(dag)
+    try:   
+        dag = int(dag) 
     except ValueError:
         print("Geen geldige nummer, probeer opnieuw:\n")
         continue
@@ -84,13 +84,14 @@ probeer opnieuw:
 
 resultaat = metingen(dag)
 
+print(resultaat)
 
 
 
 data = open("dagdata.txt", "a")
-regel = data.readlines()
-for regel in range(1,8):
-    regel = []
+data.write(resultaat)
+
+
     
 data.close()
 
