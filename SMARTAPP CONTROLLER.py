@@ -147,7 +147,41 @@ Welk systeem wil je overschrijven?
     
 
 
+def smart_app_controller(inputFile, outputFile):
+    while True:
+        print("""
+Welkom bij de Smart App Menu.
+Kies een van de volgende opties:
+1: Aantal dagen weergeven
+2: Automatisch alle actuatoren berekenen en naar uitvoerbestand schrijven
+3: Waarde overschrijven in het uitvoerbestand
+4: Stoppen
+""")
+        keuze = input("Voer je keuze in (1-4): ").strip()
 
-print(aantal_dagen("input.txt"))  
-auto_bereken("input.txt", "output.txt")
-print(overwrite_settings("output.txt"))
+        if keuze == "1":
+            aantal = aantal_dagen(inputFile)
+            print(f"Aantal dagen in bestand: {aantal}")
+
+        elif keuze == "2":
+            auto_bereken(inputFile, outputFile)
+            print(f"Berekening afgerond en resultaten opgeslagen in {outputFile}")
+
+        elif keuze == "3":
+            result = overwrite_settings(outputFile)
+            if result == 0:
+                print("Overschrijven gelukt.")
+            elif result == -1:
+                print("Datum niet gevonden.")
+            elif result == -3:
+                print("Ongeldige invoer.")
+            # je kunt andere retour‐codes nog interpreteren
+
+        elif keuze == "4":
+            print("Programma wordt gestopt. Tot ziens!")
+            break
+
+        else:
+            print("Ongeldige keuze, probeer opnieuw.")
+
+smart_app_controller("input.txt", "output.txt")

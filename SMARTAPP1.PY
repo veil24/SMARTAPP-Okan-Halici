@@ -40,8 +40,9 @@ def data_opslaan(resultaat):
     gevonden = False
     for regel in regels:
         if regel.split(";")[0] == str(dagnr):
-            gevonden = True
+            
             melding = input("Je hebt al data opgeslagen voor deze dag wil je deze vervangen?(Y/N): ").strip()
+            gevonden = True
             if melding.upper() == "Y": 
                 regels.remove(regel)
                 regels.append(regel_nieuw)
